@@ -2,7 +2,7 @@
 Some popular convert methods.
 
 <b>Size: </b> 3KB.<br/>
-<b>Total methods: </b> 22.
+<b>Total methods: </b> 24.
 
 <p><i>Notice: </i>this library may be helpful for enyone who often works with diffrents transform methods via JavaScript. <br/>
 In the future archieve will be periodically supplemented by new functions.
@@ -91,13 +91,6 @@ In the future archieve will be periodically supplemented by new functions.
 </tr>
 
 <tr align="center">
-<td> String </td>
-<td> <b>findBetween</b> </td>
-<td> Finds values between specified symbols </td>
-<td> <b>qConvert.findBetween</b>(4); <hr/> true </td>
-</tr>
-
-<tr align="center">
 <td> Array </td>
 <td> <b>findMax</b> </td>
 <td> Finds maximal significance </td>
@@ -133,10 +126,31 @@ In the future archieve will be periodically supplemented by new functions.
 </tr>
 
 <tr align="center">
+<td> Array </td>
+<td> <b>pushIfNotExists</b> </td>
+<td> Insert assigned value into array if not exists </td>
+<td> <b>qConvert.pushIfNotExists</b>([1,2,4], 3); <hr/> [1,2,3,4] </td>
+</tr>
+
+<tr align="center">
+<td> Array </td>
+<td> <b>remove</b> </td>
+<td> Delete assigned values from array </td>
+<td> <b>qConvert.remove</b>([1,2,3,4,5], 3); <hr/> [1,2,4,5] </td>
+</tr>
+
+<tr align="center">
 <td> String </td>
 <td> <b>reverse</b> </td>
 <td> Reverse existing string </td>
 <td> <b>qConvert.reverse</b>("hello"); <hr/> olleh </td>
+</tr>
+
+<tr align="center">
+<td> String </td>
+<td> <b>runFuncFromVariable</b> </td>
+<td> Run function from string if exists </td>
+<td> <b>qConvert.runFuncFromVariable</b>("greeting"); <hr/> greeting() </td>
 </tr>
 
 <tr align="center">

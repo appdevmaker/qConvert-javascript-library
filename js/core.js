@@ -13,13 +13,15 @@ var qConvert = (function(){
             isNegative: isNegative,
             isNumerable: isNumerable,
             isPositive: isPositive,
-            findBetween: findBetween,
             findMin: findMin,
             findMax: findMax,
             getUnique: getUnique,
             merge: merge,
             mult: mult,
+            pushIfNotExists: pushIfNotExists,
+            remove: remove,
             reverse: reverse,
+            runFuncFromVariable: runFuncFromVariable,
             subtract: subtract,
             sum: sum,
             toNumber: toNumber,
@@ -194,26 +196,6 @@ var qConvert = (function(){
             return res;
         }
 
-        /** * Finds values between specified symbols *
-         * @param {String} text - initial string field
-         * @param {String} symbols - line, which contains 2 symbols for scanning, exm: {}, "", -- etc.
-         * @return {Array | Null} - returns results collection or null if didn't find.
-         */
-        function findBetween(text, symbols){
-            if (isTrue(text)) {
-                var found = [],
-                    rxp = new RegExp(symbols.charAt(0) + "([^}]+)" + symbols.charAt(1), "g"),
-                    curMatch;
-
-                while (curMatch = rxp.exec(text)) {
-                    found.push(curMatch[1]);
-                }
-                return isNotEmptyArray(found) ? found : null;
-            } else {
-                return null;
-            }
-        }
-
         /** * Finds maximal significance *
          * @param {Array} arr - collection for scanning
          * @return {Boolean}
@@ -270,11 +252,35 @@ var qConvert = (function(){
         }
 
         /** * Multiples the numbers *
-         * @param {Array} arguments - collection elements
          * @return {Number}
          */
         function mult(){
             return countByExpression("*", arguments);
+        }
+
+        /** * Insert assigned value into array if not exists *
+         * @param {Array} coll - initial elements collection
+         * @param {String | Number} el - variable to compare
+         * @returns {Array}
+         */
+        function pushIfNotExists(coll, el){
+            if (coll.indexOf(el) === -1) {
+                coll.push(el);
+            }
+            return coll.sort();
+        }
+
+        /** * Delete assigned values from array *
+         * @param {Array} coll - collection elements
+         * @param {Number | String} el - element to search
+         * @return {Number}
+         */
+        function remove(coll, el) {
+            var position = coll.indexOf(el);
+            if (position > -1) {
+                coll.splice(position, 1);
+            }
+            return coll;
         }
 
         /** * Reverse existing string *
@@ -291,8 +297,14 @@ var qConvert = (function(){
             return tempA;
         }
 
+        /** * Run function from string if exists *
+        * @param {String} variable
+         */
+        function runFuncFromVariable(variable){
+            window[variable]();
+        }
+
         /** * Subtracts the numbers *
-         * @param {Array} arguments - collection elements
          * @return {Number}
          */
         function subtract(){
@@ -300,7 +312,6 @@ var qConvert = (function(){
         }
 
         /** * Adds the numbers *
-         * @param {Array} arguments - collection elements
          * @return {Number}
          */
         function sum(){
@@ -331,6 +342,7 @@ var qConvert = (function(){
                 return pointPos<0 || i<pointPos ? ($0+',') : $0;
             });
         }
+
 
 
         /*
