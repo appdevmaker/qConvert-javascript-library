@@ -1,8 +1,8 @@
 # qConvert-javascript-library
 Some popular convert methods.
 
-<b>Size: </b> 3KB.<br/>
-<b>Total methods: </b> 24.
+<b>Size: </b> 3,07KB.<br/>
+<b>Total methods: </b> 26.
 
 <p><i>Notice: </i>this library may be helpful for enyone who often works with diffrents transform methods via JavaScript. <br/>
 In the future archieve will be periodically supplemented by new functions.
@@ -92,6 +92,13 @@ In the future archieve will be periodically supplemented by new functions.
 
 <tr align="center">
 <td> Array </td>
+<td> <b>findDuplicates</b> </td>
+<td> Finds duplicates in array </td>
+<td> <b>qConvert.findDuplicates</b>(['a', 'b', 'A', 'A', 'c']); <hr/> [{Value: 'a', Matches: 1}, {Value: 'b', Matches: 1}, {Value: 'A', Matches: 2}, {Value: 'c', Matches: 1}] </td>
+</tr>
+
+<tr align="center">
+<td> Array </td>
 <td> <b>findMax</b> </td>
 <td> Finds maximal significance </td>
 <td> <b>qConvert.findMax</b>([-1,2,35,6,4]); <hr/> 35 </td>
@@ -165,6 +172,13 @@ In the future archieve will be periodically supplemented by new functions.
 <td> <b>sum</b> </td>
 <td> Add the numbers </td>
 <td> 1. <b>qConvert.sum</b>([1,2,3], [4]); <br/> 2. <b>qConvert.sum</b>(1,2,3); <hr/> 1. 10 <br/> 2. 6</td>
+</tr>
+
+<tr align="center">
+<td> String </td>
+<td> <b>toCamelCase</b> </td>
+<td> Converts into Camel Case </td>
+<td> <b>qConvert.toCamelCase</b>('Hello world'); <hr/> helloWorld </td>
 </tr>
 
 <tr align="center">

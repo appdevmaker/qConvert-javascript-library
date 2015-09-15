@@ -13,6 +13,7 @@ var qConvert = (function(){
             isNegative: isNegative,
             isNumerable: isNumerable,
             isPositive: isPositive,
+            findDuplicates: findDuplicates,
             findMin: findMin,
             findMax: findMax,
             getUnique: getUnique,
@@ -24,6 +25,7 @@ var qConvert = (function(){
             runFuncFromVariable: runFuncFromVariable,
             subtract: subtract,
             sum: sum,
+            toCamelCase: toCamelCase,
             toNumber: toNumber,
             toThousand: toThousand
 
@@ -196,6 +198,31 @@ var qConvert = (function(){
             return res;
         }
 
+        /** * Find duplicates in array *
+         * @param {Array} collection - input elements list
+         * @return {Array}
+         */
+        function findDuplicates(collection) {
+
+            var newList = [],
+                tempArray= collection.slice(0),
+                matches,
+                tempLen = tempArray.length,
+                colLen = collection.length;
+
+            for (var i = 0; i < colLen; i++) {
+                matches = 0;
+                for (var j = 0; j < tempLen; j++) {
+                    if (collection[i] == tempArray[j]) {
+                        matches++;
+                        delete tempArray[j];
+                    }
+                }
+                matches > 0 && newList.push({ Value: collection[i], Matches: matches });
+            }
+            return newList;
+        }
+
         /** * Finds maximal significance *
          * @param {Array} arr - collection for scanning
          * @return {Boolean}
@@ -316,6 +343,17 @@ var qConvert = (function(){
          */
         function sum(){
             return countByExpression("+", arguments);
+        }
+
+        /** * Convert into Camel Case *
+         * @param {String} str - input text to convert
+         * @return {String}
+         */
+        function toCamelCase(str) {
+            return str.replace(/^([A-Z])|\s(\w)/g, function(match, p1, p2) {
+                if (p2) return p2.toUpperCase();
+                return p1.toLowerCase();
+            });
         }
 
         /** * Converts string into number *
