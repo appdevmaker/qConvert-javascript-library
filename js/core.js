@@ -25,6 +25,7 @@ var qConvert = (function(){
             runFuncFromVariable: runFuncFromVariable,
             subtract: subtract,
             sum: sum,
+            sortArrayObjects: sortArrayObjects,
             toCamelCase: toCamelCase,
             toNumber: toNumber,
             toThousand: toThousand
@@ -343,6 +344,13 @@ var qConvert = (function(){
          */
         function sum(){
             return countByExpression("+", arguments);
+        }
+
+        /** * Sort objects in array *
+         * @return {Array}
+         */
+        function sortArrayObjects(collection, value){
+            return collection.sort(function(a,b) {return (a[value] > b[value]) ? 1 : ((b[value] > a[value]) ? -1 : 0);} );
         }
 
         /** * Convert into Camel Case *

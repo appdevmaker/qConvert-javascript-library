@@ -175,6 +175,13 @@ In the future archieve will be periodically supplemented by new functions.
 </tr>
 
 <tr align="center">
+<td> Array </td>
+<td> <b>sortArrayObjects</b> </td>
+<td> Produces sorting with elements within array of objects. </td>
+<td> 1. <b>qConvert.sortArrayObjects</b>([{name: "Dilan", name: "Bob", name: "Daniel"}]); <hr/> [{name: "Bob", name: "Daniel", name: "Dilan"}] </td>
+</tr>
+
+<tr align="center">
 <td> String </td>
 <td> <b>toCamelCase</b> </td>
 <td> Converts into Camel Case </td>
