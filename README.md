@@ -277,7 +277,7 @@ qConvert.toNumber("3.5");
 <h2> toThousand </h2>
 Transform number into thousand format via filter.
 ```javascript
-qConvert.toThousand(1233.5");
+qConvert.toThousand("1233.5");
 ```
 
 <b>Output:</b> 1,233.5
