@@ -39,10 +39,10 @@ qConvert.checkArrayAvailability(arr, "a", values);
 qConvert.checkArrayAvailability(arr, "a", values);    
 ```
 
-<b>Output:</b> ["b"]
-<b>Output:</b> ["b"]
-<b>Output:</b> ["b", "c"]
-<b>Output:</b> Full
+<b>Output:</b> ["b"]<br/>
+<b>Output:</b> ["b"]<br/>
+<b>Output:</b> ["b", "c"]<br/>
+<b>Output:</b> Full<br/>
 <b>Output:</b> Full
 *************
 
@@ -252,7 +252,7 @@ qConvert.sum([1,2,3], [4]);
 qConvert.sum(1,2,3);
 ```
 
-<b>Output:</b> 10
+<b>Output:</b> 10<br/>
 <b>Output:</b> 6
 *************
 
@@ -293,10 +293,10 @@ qConvert.toggleIntoArray(arr, {a: 3, b:4}, "a", 3);
 qConvert.toggleIntoArray(arr, {a: 2, b:4}, "a", 2);
 ```
 
-<b>Output:</b> [1]
-<b>Output:</b> ["a", "b", "c"]
-<b>Output:</b> [{a:2, b:4}]
-<b>Output:</b> [{a:2, b:4}, {a:3, b:4}]
+<b>Output:</b> [1] <br/>
+<b>Output:</b> ["a", "b", "c"] <br/>
+<b>Output:</b> [{a:2, b:4}] <br/>
+<b>Output:</b> [{a:2, b:4}, {a:3, b:4}] <br/>
 <b>Output:</b> [{a:3, b:4}]
 *************
 
