@@ -5,6 +5,7 @@ var qConvert = (function(){
             allOverlap: allOverlap,
             capitalizeFirst: capitalizeFirst,
             isBigger: isBigger,
+            checkArrayAvailability: checkArrayAvailability,
             cloneObj: cloneObj,
             cloneArray: cloneArray,
             cloneDate: cloneDate,
@@ -28,7 +29,8 @@ var qConvert = (function(){
             sortArrayObjects: sortArrayObjects,
             toCamelCase: toCamelCase,
             toNumber: toNumber,
-            toThousand: toThousand
+            toThousand: toThousand,
+            toggleIntoArray: toggleIntoArray
 
         };
 
@@ -94,6 +96,23 @@ var qConvert = (function(){
                     }
                 }
             });
+        }
+
+        /**  * Fill array if not full *
+         * @param {Array} coll - user collection
+         * @param {String | Number} label - value to check
+         * @param {Array} values - initial values collection
+         * @return {String | Array} - copied object
+         */
+        function checkArrayAvailability(coll, label, values){
+            if (checkIsFull(coll, values) != "Full") {
+                values.forEach(function(i){
+                    coll.indexOf(label) == -1 && coll.push(label);
+                });
+                return checkIsFull(coll, values);
+            } else {
+                return "Full";
+            }
         }
 
         /**  * Clones assigned object *
@@ -389,6 +408,40 @@ var qConvert = (function(){
             });
         }
 
+        /** * Push or remove value into Array *
+         * @param {Array} coll - collection to compare
+         * @param {String | Number | Object} value - data for toggle
+         * @param {String} param - if value type is "Object", param assumes property Name
+         * @param {String} prop - object property Name
+         * @return {Array} - filtered collection
+         */
+        function toggleIntoArray(coll, value, prop, param) {
+            var type = typeof value,
+                typeF = type.charAt(0).toUpperCase() + type.substring(1),
+                method = {
+                    Number: toggle,
+                    String: toggle,
+                    Object: toggle
+                };
+
+            method[typeF](value, type);
+
+            function toggle(val, t){
+                if (t == "object") {
+                    if (coll.length == 0) {
+                        coll.push(val);
+                    } else {
+                        coll.forEach(function (i, index) {
+                            console.log(i);
+                            i[prop] == param ? coll.splice(index, 1) : coll.push(val);
+                        });
+                    }
+                } else {
+                    coll.indexOf(val) == -1 ? coll.push(val) : coll.splice(coll.indexOf(val), 1);
+                }
+            }
+        }
+
 
 
         /*
@@ -399,6 +452,10 @@ var qConvert = (function(){
          * This methods use to calculate main functions and separate overall logic into few small parts.
          * Each method is absolutely functional procedure, which can perform certain actions.
          */
+
+        function checkIsFull(coll, initValues){
+            return coll.length == initValues.length ? "Full" : coll;
+        }
 
         function isTrue(arg){
             return Boolean(arg) == true;

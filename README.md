@@ -1,206 +1,304 @@
 # qConvert-javascript-library
 Some popular convert methods.
 
-<b>Size: </b> 3,07KB.<br/>
-<b>Total methods: </b> 26.
+<b>Size: </b> 3,64KB.<br/>
+<b>Total methods: </b> 28.
 
 <p><i>Notice: </i>this library may be helpful for enyone who often works with diffrents transform methods via JavaScript. <br/>
 In the future archieve will be periodically supplemented by new functions.
 
 <p>See description for each method below.</p>
 
-<table width="100%">
-<thead>
-<tr align="center">
-<td> <b>Input Parameter</b> </td>
-<td> <b>Method</b> </td>
-<td> <b>Description</b> </td>
-<td> <b>Example</b> </td>
-</tr>
-</thead>
-<tbody>
+<h2> allOverlap </h2>
+Return found matches.
+```javascript
+qConvert.allOverlap(4, [3,43,'a',4], 2); 
+```
 
-<tr align="center">
-<td> Number </td>
-<td> <b>allOverlap</b> </td>
-<td> Returns matches found </td>
-<td> <b>qConvert.allOverlap</b>(4, [3,43,'a',4], 2); <hr/> <p><i> {"index": 3, "value": 4} </i></p> </td>
-</tr>
+<b>Output:</b> {"index": 3, "value": 4}
+*************
 
-<tr align="center">
-<td> String </td>
-<td> <b>capitalizeFirst</b> </td>
-<td> First char at each word in UpperCase </td>
-<td> <b>qConvert.capitalizeFirst</b>("hello world!"); <hr/> <p><i> Hello World! </i></p> </td>
-</tr>
+<h2> capitalizeFirst </h2>
+First char at each word in UpperCase.
+```javascript
+qConvert.capitalizeFirst("hello world!"); 
+```
 
-<tr align="center">
-<td> Object </td>
-<td> <b>cloneObj</b> </td>
-<td> Clones assigned object into temporary memorary for safe use</td>
-<td> <b>qConvert.cloneObj</b>({a:1, b:2}); <hr/> <p><i> {a:1, b:2} </i></p> </td>
-</tr>
+<b>Output:</b> Hello World!
+*************
 
-<tr align="center">
-<td> Array </td>
-<td> <b>cloneArray</b> </td>
-<td> Clones assigned array into temporary memorary for safe use</td>
-<td> <b>qConvert.cloneArray</b>([1,2,3]); <hr/> - </td>
-</tr>
+<h2> checkArrayAvailability </h2>
+Add values into collection and return "Full" if filled.
+```javascript
+var arr = [],
+    values = ["a", "b", "c"];
+qConvert.checkArrayAvailability(arr, "b", values);
+qConvert.checkArrayAvailability(arr, "b", values); 
+qConvert.checkArrayAvailability(arr, "c", values);
+qConvert.checkArrayAvailability(arr, "a", values);
+qConvert.checkArrayAvailability(arr, "a", values);    
+```
 
-<tr align="center">
-<td> Date </td>
-<td> <b>cloneDate</b> </td>
-<td> Clones assigned Date into temporary memorary for safe use</td>
-<td> <b>qConvert.cloneDate</b>(new Date()); <hr/> - </td>
-</tr>
+<b>Output:</b> ["b"]
+<b>Output:</b> ["b"]
+<b>Output:</b> ["b", "c"]
+<b>Output:</b> Full
+<b>Output:</b> Full
+*************
 
-<tr align="center">
-<td> Number </td>
-<td> <b>isBigger</b> </td>
-<td> Compares two numbers </td>
-<td> <b>qConvert.isBigger</b>(3,7); <hr/> false </td>
-</tr>
+<h2> cloneArray </h2>
+Clone assigned array into temporary memorary for safe use.
+```javascript
+qConvert.cloneArray([1,2,3]);
+```
 
-<tr align="center">
-<td> Number </td>
-<td> <b>isLess</b> </td>
-<td> Compares two numbers </td>
-<td> <b>qConvert.isLess</b>(4,5); <hr/> true </td>
-</tr>
+<b>Output:</b> [1,2,3]
+*************
 
-<tr align="center">
-<td> Number </td>
-<td> <b>isNegative</b> </td>
-<td> Returns "true" or "false" </td>
-<td> <b>qConvert.isNegative</b>(4); <hr/> false </td>
-</tr>
+<h2> cloneDate </h2>
+Clone assigned Date into temporary memorary for safe use.
+```javascript
+qConvert.cloneDate(new Date());
+```
 
-<tr align="center">
-<td> Array </td>
-<td> <b>isNumerable</b> </td>
-<td> Defines that collection truly contains numerable only and returns Boolean </td>
-<td> 1. <b>qConvert.isNumerable</b>([1,2,3, 'a']); <br/> 2. <b>qConvert.isNumerable</b>([1,2,"3"]); <hr/> 1. false<br/> 2. true </td>
-</tr>
+<b>Output:</b> -
+*************
 
-<tr align="center">
-<td> Number </td>
-<td> <b>isPositive</b> </td>
-<td> Returns "true" or "false" </td>
-<td> <b>qConvert.isPositive</b>(4); <hr/> true </td>
-</tr>
+<h2> cloneObj </h2>
+Clone assigned object into temporary memorary for safe use.
+```javascript
+qConvert.cloneObj({a:1, b:2});
+```
 
-<tr align="center">
-<td> Array </td>
-<td> <b>findDuplicates</b> </td>
-<td> Finds duplicates in array </td>
-<td> <b>qConvert.findDuplicates</b>(['a', 'b', 'A', 'A', 'c']); <hr/> [{Value: 'a', Matches: 1}, {Value: 'b', Matches: 1}, {Value: 'A', Matches: 2}, {Value: 'c', Matches: 1}] </td>
-</tr>
+<b>Output:</b> {a:1, b:2}
+*************
 
-<tr align="center">
-<td> Array </td>
-<td> <b>findMax</b> </td>
-<td> Finds maximal significance </td>
-<td> <b>qConvert.findMax</b>([-1,2,35,6,4]); <hr/> 35 </td>
-</tr>
+<h2> findDuplicates </h2>
+Finds duplicates in array.
+```javascript
+qConvert.findDuplicates(['a', 'b', 'A', 'A', 'c']);
+```
 
-<tr align="center">
-<td> Array </td>
-<td> <b>findMin</b> </td>
-<td> Finds minimal significance </td>
-<td> <b>qConvert.findMin</b>([-1,2,35,6,4, 0, -30, 31]); <hr/> -30 </td>
-</tr>
+<b>Output:</b> [{Value: 'a', Matches: 1}, {Value: 'b', Matches: 1}, {Value: 'A', Matches: 2}, {Value: 'c', Matches: 1}]
+*************
 
-<tr align="center">
-<td> Array </td>
-<td> <b>getUnique</b> </td>
-<td> Returns unique values from array. If number repeats more than 2 times, will be repeated itself. </td>
-<td> <b>qConvert.getUnique</b>([2,3,2,5,4,3,5,5,4]); <hr/> [2,3,5,4] </td>
-</tr>
+<h2> findMax </h2>
+Finds maximal significance.
+```javascript
+qConvert.findMax([-1,2,35,6,4]);
+```
 
-<tr align="center">
-<td> Object </td>
-<td> <b>merge</b> </td>
-<td> Concat assigned objects into main </td>
-<td> 1. <b>qConvert.merge</b>({a:1}, {b:2}); <br/> 2. <b>qConvert.merge</b>({a:1}, {a:3}); <br/> 3. <b>qConvert.merge</b>({a:1}, 5); <hr/> 1. {a:1, b:2} <br/> 2. {a:3} <br/> 3. {a:1}  </td>
-</tr>
+<b>Output:</b> 35
+*************
 
-<tr align="center">
-<td> Array </td>
-<td> <b>mult</b> </td>
-<td> Multiples the numbers </td>
-<td> 1. <b>qConvert.mult</b>(1,2,3);<br/> 2. <b>qConvert.mult</b>("1",[4], 2); <br/> 3. <b>qConvert.mult</b>("1",[4], 2, [1.25]); <hr/> 1. 6<br/> 2. 8<br/> 3. 10 </td>
-</tr>
+<h2> findMin </h2>
+Finds minimal significance.
+```javascript
+qConvert.findMin([-1,2,35,6,4, 0, -30, 31]);
+```
 
-<tr align="center">
-<td> Array </td>
-<td> <b>pushIfNotExists</b> </td>
-<td> Insert assigned value into array if not exists </td>
-<td> <b>qConvert.pushIfNotExists</b>([1,2,4], 3); <hr/> [1,2,3,4] </td>
-</tr>
+<b>Output:</b> -30
+*************
 
-<tr align="center">
-<td> Array </td>
-<td> <b>remove</b> </td>
-<td> Delete assigned values from array </td>
-<td> <b>qConvert.remove</b>([1,2,3,4,5], 3); <hr/> [1,2,4,5] </td>
-</tr>
+<h2> getUnique </h2>
+Returns unique values from array. If number repeats more than 2 times, will be repeated itself.
+```javascript
+qConvert.getUnique([2,3,2,5,4,3,5,5,4]);
+```
 
-<tr align="center">
-<td> String </td>
-<td> <b>reverse</b> </td>
-<td> Reverse existing string </td>
-<td> <b>qConvert.reverse</b>("hello"); <hr/> olleh </td>
-</tr>
+<b>Output:</b> [2,3,5,4]
+*************
 
-<tr align="center">
-<td> String </td>
-<td> <b>runFuncFromVariable</b> </td>
-<td> Run function from string if exists </td>
-<td> <b>qConvert.runFuncFromVariable</b>("greeting"); <hr/> greeting() </td>
-</tr>
+<h2> isBigger </h2>
+Compare two numbers.
+```javascript
+qConvert.isBigger(3,7);
+```
 
-<tr align="center">
-<td> Array </td>
-<td> <b>subtract</b> </td>
-<td> Subtracts the numbers </td>
-<td> <b>qConvert.subtract</b>("hello"); <hr/> - </td>
-</tr>
+<b>Output:</b> false
+*************
 
-<tr align="center">
-<td> Array </td>
-<td> <b>sum</b> </td>
-<td> Add the numbers </td>
-<td> 1. <b>qConvert.sum</b>([1,2,3], [4]); <br/> 2. <b>qConvert.sum</b>(1,2,3); <hr/> 1. 10 <br/> 2. 6</td>
-</tr>
+<h2> isLess </h2>
+Compare two numbers.
+```javascript
+qConvert.isLess(4,5);
+```
 
-<tr align="center">
-<td> Array </td>
-<td> <b>sortArrayObjects</b> </td>
-<td> Produces sorting with elements within array of objects. </td>
-<td> 1. <b>qConvert.sortArrayObjects</b>([{name: "Dilan", name: "Bob", name: "Daniel"}]); <hr/> [{name: "Bob", name: "Daniel", name: "Dilan"}] </td>
-</tr>
+<b>Output:</b> true
+*************
 
-<tr align="center">
-<td> String </td>
-<td> <b>toCamelCase</b> </td>
-<td> Converts into Camel Case </td>
-<td> <b>qConvert.toCamelCase</b>('Hello world'); <hr/> helloWorld </td>
-</tr>
+<h2> isNegative </h2>
+Return boolean capacity after check number property.
+```javascript
+qConvert.isNegative(4);
+```
 
-<tr align="center">
-<td> String </td>
-<td> <b>toNumber</b> </td>
-<td> Converts string into number </td>
-<td> <b>qConvert.toNumber</b>("3.5"); <hr/> 3.5 </td>
-</tr>
+<b>Output:</b> false
+*************
 
-<tr align="center">
-<td> Number </td>
-<td> <b>toThousand</b> </td>
-<td> Transform number into thousand format via filter </td>
-<td> <b>qConvert.toThousand</b>(1233.5"); <hr/> 1,233.5 </td>
-</tr>
+<h2> isNegative </h2>
+Defines that collection truly contains numerable only and returns Boolean.
+```javascript
+qConvert.isNumerable([1,2,3, 'a']);
+qConvert.isNumerable([1,2,"3"]);
+```
+
+<b>Output:</b> false<br/>
+<b>Output:</b> true
+*************
+
+<h2> isNotEmptyArray </h2>
+Return true if array isn't empty.
+```javascript
+qConvert.isNotEmptyArray([1,2,3, 'a']);
+```
+
+<b>Output:</b> true
+*************
+
+<h2> isPositive </h2>
+Return boolean capacity after check number property.
+```javascript
+qConvert.isPositive(4);
+```
+
+<b>Output:</b> true
+*************
+
+<h2> merge </h2>
+Concat assigned objects into main.
+```javascript
+qConvert.merge({a:1}, {b:2});
+qConvert.merge({a:1}, {a:3});
+qConvert.merge({a:1}, 5);
+```
+
+<b>Output:</b> {a:1, b:2}<br/>
+<b>Output:</b> {a:3}<br/>
+<b>Output:</b> {a:1}
+*************
+
+<h2> mult </h2>
+Multiples the numbers or array of numbers if necessary.
+```javascript
+qConvert.mult(1,2,3);
+qConvert.mult("1",[4], 2);
+qConvert.mult("1",[4], 2, [1.25]);
+```
+
+<b>Output:</b> 6<br/>
+<b>Output:</b> 8<br/>
+<b>Output:</b> 10
+*************
+
+<h2> pushIfNotExists </h2>
+Insert assigned value into array if not exists.
+```javascript
+qConvert.pushIfNotExists([1,2,4], 3);
+```
+
+<b>Output:</b> [1,2,3,4]
+*************
+
+<h2> remove </h2>
+Delete assigned values from array.
+```javascript
+qConvert.remove([1,2,3,4,5], 3);
+```
+
+<b>Output:</b> [1,2,4,5]
+*************
+
+<h2> reverse </h2>
+Reverse existing string.
+```javascript
+qConvert.reverse("hello");
+```
+
+<b>Output:</b> olleh
+*************
+
+<h2> runFuncFromVariable </h2>
+Run function from string if exists.
+```javascript
+qConvert.runFuncFromVariable("greeting");
+```
+
+<b>Output:</b> greeting()
+*************
+
+<h2> sortArrayObjects </h2>
+Produce sorting with elements within array of objects.
+```javascript
+qConvert.sortArrayObjects([{name: "Dilan"}, {name: "Bob"}, {name: "Daniel"}], "name");
+```
+
+<b>Output:</b> [{name: "Bob"}, {name: "Daniel"}, {name: "Dilan"}]
+*************
+
+<h2> subtract </h2>
+Reverse number significance, all strings equal to 0, then add elements.
+```javascript
+qConvert.subtract(5, "h", 3);
+```
+
+<b>Output:</b> -8
+*************
+
+<h2> sum </h2>
+Add the numbers, all strings equal to 0.
+```javascript
+qConvert.sum([1,2,3], [4]);
+qConvert.sum(1,2,3);
+```
+
+<b>Output:</b> 10
+<b>Output:</b> 6
+*************
+
+<h2> toCamelCase </h2>
+Converts into Camel Case .
+```javascript
+qConvert.toCamelCase('Hello world');
+```
+
+<b>Output:</b> helloWorld
+*************
+
+<h2> toNumber </h2>
+Converts string into number.
+```javascript
+qConvert.toNumber("3.5");
+```
+
+<b>Output:</b> 3.5
+*************
+
+<h2> toThousand </h2>
+Transform number into thousand format via filter.
+```javascript
+qConvert.toThousand(1233.5");
+```
+
+<b>Output:</b> 1,233.5
+*************
+
+<h2> toggleIntoArray </h2>
+Add value into array if not exists or remove it. Works with Numbers, String and Objects. Object type have to receive 2 additional parameters.
+```javascript
+qConvert.toggleIntoArray([1,2], 2);
+qConvert.toggleIntoArray(["a", "b"], "c");
+qConvert.toggleIntoArray(arr, {a: 2, b:4}, "a", 2);
+qConvert.toggleIntoArray(arr, {a: 3, b:4}, "a", 3);
+qConvert.toggleIntoArray(arr, {a: 2, b:4}, "a", 2);
+```
+
+<b>Output:</b> [1]
+<b>Output:</b> ["a", "b", "c"]
+<b>Output:</b> [{a:2, b:4}]
+<b>Output:</b> [{a:2, b:4}, {a:3, b:4}]
+<b>Output:</b> [{a:3, b:4}]
+*************
 
 </tbody>
 </table>
